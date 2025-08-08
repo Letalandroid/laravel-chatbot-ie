@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RequestsPosts;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\Http\Service\PostsService;
@@ -22,9 +23,9 @@ class Posts extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(RequestsPosts $request)
     {
-        //
+       return $this->postsService->create( $request->validated() );
     }
 
     /**
