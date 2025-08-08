@@ -11,5 +11,5 @@ class Posts extends Model
         'description',
     ];
 
-    public const PAGINATE = 10;
+    public const PAGINATE = 25;
 }

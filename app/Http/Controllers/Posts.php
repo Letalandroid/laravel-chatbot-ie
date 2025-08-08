@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Posts as PostModel;
 use Illuminate\Pagination\LengthAwarePaginator;
+use App\Http\Service\PostsService;
 
 class Posts extends Controller
 {
+
+    public function __construct( private PostsService $postsService ) {}
 
     /**
      * Display the specified resource.
      */
     public function show(): LengthAwarePaginator
     {
-        $page = PostModel::latest();
-        return $page->paginate(PostModel::PAGINATE);
+        return $this->postsService->getAll();
     }
 
     /**
