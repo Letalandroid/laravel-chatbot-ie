@@ -19,7 +19,10 @@ COPY . /app
 RUN composer install
 
 # Migrations
-# RUN php artisan migrate
+RUN php artisan migrate
+
+# Key
+RUN php artisan key:generate
 
 # Expose port
 EXPOSE 8000
