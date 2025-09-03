@@ -21,8 +21,12 @@ RUN composer install
 # Migrations
 # RUN php artisan migrate
 
+# Key
+# RUN php artisan key:generate
+
 # Expose port
 EXPOSE 8000
 
 # Start Laravel server
-CMD php artisan serve --host=0.0.0.0 --port=8000
+CMD php artisan migrate:fresh --force && \
+    php artisan serve --host=0.0.0.0 --port=8000
