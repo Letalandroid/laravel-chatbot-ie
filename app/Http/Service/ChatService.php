@@ -2,12 +2,10 @@
 
 namespace App\Http\Service;
 
+use App\Utilities\ReadText;
 use Gemini\Data\Content;
-use Gemini\Enums\ModelVariation;
 use Gemini\Enums\Role;
-use Gemini\GeminiHelper;
 use Gemini;
-use Stringable;
 use function App\Utilities\readText;
 
 class ChatService
@@ -28,7 +26,9 @@ class ChatService
         y usa ejemplos del entorno cotidiano (Piura, la costa del Perú, la naturaleza, etc.).
 
         Fomenta la curiosidad científica haciendo preguntas abiertas cuando sea apropiado. Puedes usar analogías, juegos de
-        palabras y preguntas interactivas para mantener el interés de los estudiantes.';
+        palabras y preguntas interactivas para mantener el interés de los estudiantes.
+
+        Cada respuesta debe tener como máximo 35-40 palabras';
 
         try {
             $systemPrompt = readText();
